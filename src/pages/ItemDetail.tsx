@@ -51,7 +51,7 @@ function ItemDetail() {
 
   const sendMessage = async () => {
     if (!user || !item) return;
-    
+
     try {
       const { error } = await supabase
         .from('messages')
@@ -110,7 +110,7 @@ function ItemDetail() {
               {item.status.charAt(0).toUpperCase() + item.status.slice(1)}
             </span>
           </div>
-          
+
           <p className="mt-4 text-gray-600">{item.description}</p>
 
           {user && user.id !== item.seller_id && item.status === 'available' && (
@@ -119,7 +119,7 @@ function ItemDetail() {
                 <div className="min-w-0 flex-1">
                   <textarea
                     rows={3}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
                     placeholder="Send a message to the seller..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
